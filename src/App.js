@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import TodoTemplate from "./component/TodoTemplate.js";
+import TodoList from "./component/TodoList.js";
+import TodoCreate from "./component/TodoCreate.js";
+import { createGlobalStyle } from "styled-components";
+import useFetch from "./utill/useFetch.js";
+import "./App.css";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #e9ecef;
+  }
+`;
 
 function App() {
+  const { todo, isPending, error } = useFetch("http://localhost:3001/todo");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoCreate></TodoCreate>
+        <TodoList todo={todo}></TodoList>
+      </TodoTemplate>
+    </>
   );
 }
 
