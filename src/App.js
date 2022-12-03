@@ -1,6 +1,6 @@
 import TodoTemplate from "./component/TodoTemplate.js";
 import TodoList from "./component/TodoList.js";
-import TodoCreate from "./component/TodoCreate.js";
+import TodoHead from "./component/TodoHead.js";
 import { createGlobalStyle } from "styled-components";
 import useFetch from "./utill/useFetch.js";
 import "./App.css";
@@ -18,8 +18,8 @@ function App() {
     <>
       <GlobalStyle />
       <TodoTemplate>
-        <TodoCreate></TodoCreate>
-        <TodoList todo={todo}></TodoList>
+        <TodoHead />
+        <TodoList todo={todo} />
       </TodoTemplate>
     </>
   );
