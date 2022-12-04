@@ -11,12 +11,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { todo, isPending, error } = useFetch("http://localhost:3001/todo");
+  const { data: todo } = useFetch("http://localhost:3001/todo");
+  const { data: quotes } = useFetch("http://localhost:3001/quotes");
 
   return (
     <>
       <GlobalStyle />
-      <TodoTemplate todo={todo} />
+      <TodoTemplate todo={todo} quotes={quotes} />
     </>
   );
 }
