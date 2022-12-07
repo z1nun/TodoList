@@ -6,8 +6,10 @@ import "./App.css";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #e9ecef;
+  background-color: #e9ecef;
+  /* position: relative; */
   }
+
 `;
 
 function App() {

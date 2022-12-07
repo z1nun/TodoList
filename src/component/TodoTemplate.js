@@ -1,23 +1,35 @@
 import React from "react";
+import TodoList from "./TodoList.js";
+import TodoHead from "./TodoHead.js";
 import styled from "styled-components";
 
-const Todotemplateblock = styled.div`
-  width: 512px;
-  height: 768px;
-  background-color: white;
-  position: relative;
-  border-radius: 16px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
-  margin-top: 68px;
-  margin-bottom: 32px;
+const TodoBackground = styled.div`
+  background-image: url("http://windowskorea.com/files/attach/images/848/045/041/39f847b0d8aa11ec3a4137399fa7e448.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
+`;
+
+const Todotemplateblock = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
 `;
 
 //props로 children
-const TodoTemplate = ({ children }) => {
-  return <Todotemplateblock>{children}</Todotemplateblock>;
+const TodoTemplate = (props) => {
+  console.log(`template`, props.todo);
+  return (
+    <TodoBackground>
+      <Todotemplateblock>
+        <TodoHead quotes={props.quotes} />
+        <TodoList todo={props.todo} />
+      </Todotemplateblock>
+    </TodoBackground>
+  );
 };
 
 export default TodoTemplate;

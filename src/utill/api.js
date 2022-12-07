@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000/";
-const BLOG_URL = "http://localhost:3000/todo/";
+const TODO_URL = "http://localhost:3000/todo/";
 
 export const fetchCreate = (url, data) => {
   fetch(url, {
@@ -34,7 +34,7 @@ export const fetchPatch = (url, id, data) => {
     body: JSON.stringify(data),
   })
     .then(() => {
-      window.location.href = `${BLOG_URL}${id}`;
+      window.location.href = `${TODO_URL}${id}`;
     })
     .catch((error) => {
       console.error("Error", error);
